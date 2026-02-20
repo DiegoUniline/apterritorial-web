@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quiénes Somos? - APT Consultoría</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            gap: 20px;
+        }
+        .subtitle {
+            background: white;
+            color: #333;
+            text-align: center;
+            padding: 0;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            flex: 1;
+            max-width: 600px;
+        }
+        /* Hero Section */
+        .hero {
+            margin-top: 100px;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 80px;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(255,255,255,0.8));
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 450px;
+            text-align: right;
+            animation: slideInRight 0.8s ease-out;
+        }
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .hero-title {
+            font-size: 36px;
+            color: #653621;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .hero-subtitle {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+        /* Main Content Section */
+        .main-content {
+            background-image: 
+                linear-gradient(135deg, rgba(101, 54, 33, 0.75) 0%, rgba(120, 70, 50, 0.72) 50%, rgba(101, 54, 33, 0.75) 100%),
+                url('https://res.cloudinary.com/dstcnsu6a/image/upload/v1763394730/DJI_0025_c8yxe7.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 60px 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .apt-logo-large {
+            width: 150px;
+            height: auto;
+            margin: 0 auto 40px;
+            filter: brightness(0) invert(1);
+            animation: fadeInScale 0.8s ease-out;
+        }
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .main-content p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+            animation: fadeIn 0.8s ease-out;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .main-content p:nth-of-type(1) {
+            animation-delay: 0.1s;
+            animation-fill-mode: both;
+        }
+        .main-content p:nth-of-type(2) {
+            animation-delay: 0.2s;
+            animation-fill-mode: both;
+        }
+        .main-content p:nth-of-type(3) {
+            animation-delay: 0.3s;
+            animation-fill-mode: both;
+        }
+        .main-content p:nth-of-type(4) {
+            animation-delay: 0.4s;
+            animation-fill-mode: both;
+            margin-bottom: 0;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Coordinadores Section */
+        .coordinadores-section {
+            background: white;
+            padding: 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: #888;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: slideUp 0.8s ease-out;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+            white-space: nowrap;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .coordinadores-grid {
+            max-width: 100%;
+            width: 100%;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            min-height: 900px;
+            background: white;
+        }
+
+        .coordinador-card {
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+            opacity: 0;
+            position: relative;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            background-size: contain;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-color: white;
+        }
+
+        .coordinador-card:nth-child(1) {
+            animation-delay: 0.2s;
+            animation-fill-mode: forwards;
+            background-image: url('https://res.cloudinary.com/dstcnsu6a/image/upload/v1763394924/LuisFernando_jws1oj.png');
+        }
+
+        .coordinador-card:nth-child(2) {
+            animation-delay: 0.4s;
+            animation-fill-mode: forwards;
+            background-image: url('https://res.cloudinary.com/dstcnsu6a/image/upload/v1763395122/LuisFernando_Dos_2_ky9zle.png');
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .coordinador-image {
+            display: none;
+        }
+
+        .coordinador-content {
+            padding: 420px 40px 40px 40px;
+            background: transparent;
+            border-radius: 0;
+            margin-top: auto;
+        }
+
+        .coordinador-name {
+            font-size: 18px;
+            color: #A0714A;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .coordinador-bio {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #333;
+            text-align: center;
+        }
+
+        .coordinador-bio p {
+            margin-bottom: 12px;
+        }
+
+        .coordinador-bio p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: #653621;
+            padding: 40px 20px;
+        }
+        .stats-container {
+            max-width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .stat-item {
+            text-align: center;
+            color: white;
+            animation: scaleInStats 0.8s ease-out;
+            opacity: 0;
+            flex: 1;
+            min-width: 150px;
+        }
+        .stat-item:nth-child(1) {
+            animation-delay: 0.1s;
+            animation-fill-mode: forwards;
+        }
+        .stat-item:nth-child(2) {
+            animation-delay: 0.3s;
+            animation-fill-mode: forwards;
+        }
+        .stat-item:nth-child(3) {
+            animation-delay: 0.5s;
+            animation-fill-mode: forwards;
+        }
+        @keyframes scaleInStats {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .stat-number {
+            font-size: 60px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .stat-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            line-height: 1.3;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+        .stat-sublabel {
+            font-size: 10px;
+            opacity: 0.9;
+            margin-top: 3px;
+        }
+        .stat-icon {
+            width: 35px;
+            height: 35px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px auto 0;
+            font-size: 18px;
+            animation: bounceIcon 0.8s ease-out;
+            animation-delay: 0.7s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        @keyframes bounceIcon {
+            0% {
+                opacity: 0;
+                transform: scale(0) translateY(-20px);
+            }
+            70% {
+                transform: scale(1.15);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        .stat-icon::before {
+            content: "✓";
+            color: #653621;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px 20px;
+        }
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .footer-section a:hover {
+            color: #C87D4A;
+        }
+        .contact-info {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 12px;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .social-links a {
+            width: 35px;
+            height: 35px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        .social-links a:hover {
+            background: #C87D4A;
+        }
+
+        /* RESPONSIVE - Tablet */
+        @media (max-width: 1024px) {
+            .hero {
+                height: 320px;
+                padding-right: 50px;
+            }
+            .hero-title {
+                font-size: 32px;
+            }
+            .hero-subtitle {
+                font-size: 14px;
+            }
+            .coordinadores-grid {
+                min-height: 750px;
+            }
+            .coordinador-content {
+                padding: 350px 30px 30px 30px;
+            }
+            .stat-number {
+                font-size: 50px;
+            }
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+        }
+
+        /* RESPONSIVE - Mobile */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                padding: 15px 10px;
+                gap: 10px;
+            }
+            .logo {
+                gap: 10px;
+            }
+            .logo img {
+                height: 50px;
+            }
+            .subtitle {
+                font-size: 12px;
+            }
+            .hero {
+                margin-top: 130px;
+                height: 280px;
+                padding-right: 30px;
+                justify-content: center;
+            }
+            .hero-content {
+                text-align: center;
+                max-width: 90%;
+            }
+            .hero-title {
+                font-size: 26px;
+                margin-bottom: 10px;
+            }
+            .hero-subtitle {
+                font-size: 13px;
+            }
+            .main-content {
+                padding: 40px 15px;
+            }
+            .content-wrapper {
+                max-width: 100%;
+            }
+            .apt-logo-large {
+                width: 120px;
+                margin-bottom: 30px;
+            }
+            .main-content p {
+                font-size: 14px;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+            /* Coordinadores - Mobile */
+            .section-title {
+                font-size: 24px;
+            }
+            .coordinadores-grid {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                gap: 30px;
+                padding: 30px 0;
+            }
+            .coordinador-card {
+                min-height: 600px;
+                background-size: cover;
+                background-position: top center;
+            }
+            .coordinador-content {
+                padding: 350px 20px 30px 20px;
+            }
+            .coordinador-name {
+                font-size: 16px;
+                margin-bottom: 12px;
+            }
+            .coordinador-bio {
+                font-size: 12px;
+                line-height: 1.6;
+            }
+            .coordinador-bio p {
+                margin-bottom: 10px;
+            }
+            /* Stats - Mobile */
+            .stats-section {
+                padding: 30px 15px;
+            }
+            .stats-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .stat-item {
+                min-width: 100%;
+            }
+            .stat-number {
+                font-size: 48px;
+            }
+            .stat-label {
+                font-size: 11px;
+            }
+            /* Footer - Mobile */
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            footer {
+                padding: 25px 15px 15px;
+            }
+            .footer-section h3 {
+                font-size: 12px;
+            }
+            .footer-section a {
+                font-size: 12px;
+            }
+            .contact-info {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 12px 10px;
+            }
+            .logo img {
+                height: 45px;
+            }
+            .subtitle {
+                font-size: 11px;
+                line-height: 1.4;
+            }
+            .hero {
+                margin-top: 120px;
+                height: 240px;
+                padding-right: 15px;
+            }
+            .hero-title {
+                font-size: 22px;
+            }
+            .hero-subtitle {
+                font-size: 12px;
+            }
+            .main-content {
+                padding: 30px 10px;
+            }
+            .apt-logo-large {
+                width: 100px;
+            }
+            .main-content p {
+                font-size: 13px;
+                margin-bottom: 12px;
+            }
+            .coordinador-card {
+                min-height: 500px;
+            }
+            .coordinador-content {
+                padding: 280px 15px 25px 15px;
+            }
+            .coordinador-name {
+                font-size: 14px;
+            }
+            .coordinador-bio {
+                font-size: 11px;
+            }
+            .stat-number {
+                font-size: 42px;
+            }
+            .footer-section ul li {
+                margin-bottom: 5px;
+            }
+            .footer-section h3 {
+                font-size: 11px;
+            }
+            .footer-section a {
+                font-size: 11px;
+            }
+            .contact-info {
+                font-size: 11px;
+                line-height: 1.6;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://res.cloudinary.com/dstcnsu6a/image/upload/v1763394730/DJI_0025_c8yxe7.jpg" alt="APT Logo">
+            </div>
+            <div class="subtitle">
+                CONSULTORÍA Y ASESORÍA PARA EL DESARROLLO URBANO Y REGIONAL
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('https://res.cloudinary.com/dstcnsu6a/image/upload/v1763394687/wind-farms-fields_gholam.png');">
+        <div class="hero-content">
+            <h1 class="hero-title">¿QUIENES SOMOS?</h1>
+            <p class="hero-subtitle">Aliados estratégicos en la construcción de entornos urbanos y regionales más justos, inclusivos, asequibles y sostenibles.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="content-wrapper">
+            <div class="apt-logo-large">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <text x="50" y="60" text-anchor="middle" fill="white" font-size="40" font-weight="bold">APT</text>
+                </svg>
+            </div>
+            
+            <p>Somos una firma que representa a un conjunto de consultores especializados en desarrollo urbano y regional, con integrantes que suman más de 40 años de experiencia impulsando proyectos que transforman el territorio y mejoran la calidad de vida en México.</p>
+            
+            <p>Nuestro equipo multidisciplinario integra expertos en planificación y diseño urbano, desarrollo regional, políticas públicas y gestión de proyectos, comprometidos con ofrecer soluciones sostenibles, innovadoras y adaptadas a las necesidades de cada comunidad.</p>
+            
+            <p>A lo largo de nuestra trayectoria individual y conjunta, hemos colaborado con gobiernos, instituciones y organizaciones privadas en el diseño de estrategias que fomentan el crecimiento ordenado, la resiliencia y la competitividad regional, contribuyendo al desarrollo equilibrado del territorio.</p>
+            
+            <p>Somos aliados estratégicos en la construcción de entornos urbanos y regionales más justos, inclusivos, asequibles y sostenibles.</p>
+        </div>
+    </section>
+
+    <!-- Coordinadores -->
+    <section class="coordinadores-section">
+        <h2 class="section-title">COORDINADORES</h2>
+        
+        <div class="coordinadores-grid">
+            <!-- Luis Fernando Puebla Gutiérrez -->
+            <div class="coordinador-card">
+                <img src="https://res.cloudinary.com/dstcnsu6a/image/upload/v1763394924/LuisFernando_jws1oj.png" alt="Luis Fernando Puebla Gutiérrez" class="coordinador-image">
+                <div class="coordinador-content">
+                    <h3 class="coordinador-name">Luis Fernando Puebla Gutiérrez</h3>
+                    <div class="coordinador-bio">
+                        <p>Es Diseñador de los Asentamientos Humanos egresado de la Universidad Autónoma Metropolitana con Maestría en Desarrollo Urbano por El Colegio de México.</p>
+                        
+                        <p>Ha dirigido la elaboración de más de 50 programas de desarrollo urbano. Asimismo, ha coordinado la elaboración de estrategias de desarrollo regional y de ordenamiento territorial para diversas entidades federativas.</p>
+                        
+                        <p>En el Gobierno Federal, fue Director General Adjunto de Desarrollo Regional de la Secretaría de Desarrollo Social (ahora SEDATU); y en el Gobierno del Estado de Sonora, fungió como Director General de Planeación Urbana y Ordenamiento Territorial de la Secretaría de Infraestructura y Desarrollo Urbano.</p>
+                        
+                        <p>Ha participado en distintas iniciativas y organizaciones como presidente de la Sociedad de Urbanismo de Sonora, integrante del equipo de consultores de la ONU-Hábitat para la Iniciativa de Ciudades Prósperas y como tesorero de la Fundación UAM.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Luis Fernando Puebla Corella -->
+            <div class="coordinador-card">
+                <img src="https://res.cloudinary.com/dstcnsu6a/image/upload/v1763395122/LuisFernando_Dos_2_ky9zle.png" alt="Luis Fernando Puebla Corella" class="coordinador-image">
+                <div class="coordinador-content">
+                    <h3 class="coordinador-name">Luis Fernando Puebla Corella</h3>
+                    <div class="coordinador-bio">
+                        <p>Es egresado con honores de la Licenciatura en Planeación Territorial de la Universidad Autónoma Metropolitana con Maestría en Ciencias Sociales por El Colegio de Sonora y próximamente doctorado por la misma institución.</p>
+                        
+                        <p>Dentro de su experiencia laboral se ha desempeñado como coordinador de una decena de programas de desarrollo urbano municipales y de centros de población; responsable de estudios y reportes sobre abandono de vivienda, estrategias de localización portuaria y de expansión empresarial; así como colaborador en programas de ordenamiento ecológico regionales y parciales de desarrollo urbano en distintas entidades del país.</p>
+                        
+                        <p>También, cuenta con publicaciones sobre temáticas relacionadas a la movilidad laboral, las políticas de desarrollo territorial y especulación inmobiliaria. Actualmente, se desenvuelve como profesor de las asignaturas relacionadas al urbanismo en la carrera de arquitectura de la Universidad de Sonora.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number" data-target="8">0</div>
+                <div class="stat-label">ESTADOS</div>
+                <div class="stat-icon"></div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="74">0</div>
+                <div class="stat-label">PLANES, PROGRAMAS Y PROYECTOS</div>
+                <div class="stat-sublabel">REALIZADOS EN EL PAÍS</div>
+                <div class="stat-icon"></div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="37">0</div>
+                <div class="stat-label">MUNICIPIOS</div>
+                <div class="stat-icon"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>NAVEGACIÓN</h3>
+                <ul>
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="quienes-somos.html">¿QUIÉNES SOMOS?</a></li>
+                    <li><a href="#trabajo">NUESTRO TRABAJO</a></li>
+                    <li><a href="#servicios">SERVICIOS</a></li>
+                    <li><a href="#contacto">CONTACTO</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>¡CONTÁCTANOS!</h3>
+                <div class="contact-info">
+                    <p>📍 DR. NORIEGA 170, COL CENTENARIO</p>
+                    <p>CP 83260</p>
+                    <p>📞 (662) 287 29 90</p>
+                    <p>📞 (662) 182 10 22</p>
+                </div>
+                <div class="social-links">
+                    <a href="#">f</a>
+                    <a href="#">@</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>UBICACIÓN</h3>
+                <p class="contact-info">HERMOSILLO, SONORA.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 APT - Consultoría y Asesoría para el Desarrollo Urbano y Regional. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Contador animado para estadísticas
+        function animateCounter(element, target, duration = 2000) {
+            let current = 0;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+        // Inicializar contadores cuando se vea la sección
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    entry.target.classList.add('animated');
+                    
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.getAttribute('data-target'));
+                        animateCounter(stat, target);
+                    });
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

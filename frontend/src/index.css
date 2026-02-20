@@ -1,0 +1,62 @@
+/*
+  Estilos globales mínimos.
+  - Qué hace: inicializa Tailwind v4 y define defaults de tipografía/scroll.
+  - Por qué: evita CSS del template de Vite que rompe el layout (centraba todo).
+  - Relacionado con: `src/pages/HomePage.tsx` (layout con header fijo y anchors).
+*/
+@import "tailwindcss";
+
+/*
+  Tokens de marca (colores/tipografía) para estandarizar el sitio.
+  - Qué hace: define variables CSS reutilizables para evitar hex repetidos y mantener consistencia visual.
+  - Por qué: el usuario pidió estandarizar tipografía y colores con los de Home.
+  - Relacionado con: `src/components/home/Experiencia.tsx` y `src/components/quienes-somos/QuienesSomosSection.tsx`.
+*/
+:root {
+  /* Acento (barra del menú + highlights) */
+  --apt-accent: #c87d4a;
+
+  /* Café corporativo (barras de estadísticas) */
+  --apt-brown: #6b3f2b;
+  --apt-brown-dark: #653621;
+
+  /* Crema/beige (números de estadísticas en Home) */
+  --apt-cream: #ead7c4;
+
+  /* Grises de títulos */
+  --apt-gray-title: #9a9a9a;
+  --apt-gray-subtitle: #888888;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Header fijo + barra de subtítulo: evita que los anchors queden tapados */
+  scroll-padding-top: 120px;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  /*
+    Tipografía base como el HTML original (Google Sites).
+    - Qué hace: define Arial como base y el color general del texto.
+    - Por qué: ayuda a que el render se vea idéntico al screenshot.
+    - Relacionado con: `Diseño actual/Home.txt` (body font/color/line-height).
+  */
+  font-family: Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/*
+  Reset del template de Vite (evita que todo quede centrado/encogido).
+  - Qué hace: fuerza al contenedor root a ocupar todo el ancho y elimina padding/márgenes.
+  - Por qué: el usuario reporta que en móvil "todo se ve súper pequeño" y el footer no llega al final; esto ocurre si #root tiene max-width + padding.
+  - Relacionado con: `src/App.css` (template) y `src/components/layout/SiteLayout.tsx`.
+*/
+#root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}

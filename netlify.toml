@@ -1,0 +1,13 @@
+[build]
+  # Qué hace: define que Netlify construya desde la carpeta del proyecto Vite.
+  # Por qué: en tu log Netlify intentó publicar `/opt/build/repo/dist` (raíz), pero nuestro build vive en `frontend/dist`.
+  # Relacionado con: `frontend/package.json` (scripts) y deploy a Netlify.
+  base = "frontend"
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Qué hace: fija una versión de Node estable en Netlify.
+  # Por qué: evita diferencias de entorno y fallos raros al instalar/compilar.
+  NODE_VERSION = "20"
+

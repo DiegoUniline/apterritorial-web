@@ -1,0 +1,19 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  /*
+    Alias de imports para evitar rutas profundas.
+    - Qué hace: habilita `@/*` -> `src/*`.
+    - Por qué: mejora legibilidad y consistencia en el Front.
+    - Relacionado con: `vite.config.ts` (alias runtime) y componentes en `src/*`.
+  */
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
