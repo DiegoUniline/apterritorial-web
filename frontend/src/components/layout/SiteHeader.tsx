@@ -121,7 +121,9 @@ export function SiteHeader({ navItems = defaultNavItems }: SiteHeaderProps) {
           */}
           <div className="absolute right-4 top-1/2 hidden -translate-y-1/2 items-center gap-2 text-white md:flex">
             <a
-              href="#"
+              href="https://www.facebook.com/share/1CWxXMY6RT/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noreferrer"
               aria-label="Facebook"
               className="inline-flex h-7 w-7 items-center justify-center rounded-sm hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:h-6 md:w-6"
             >
@@ -133,7 +135,9 @@ export function SiteHeader({ navItems = defaultNavItems }: SiteHeaderProps) {
               </svg>
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/apterritorial?igsh=NnYzM2Q3cjJ2OHVu"
+              target="_blank"
+              rel="noreferrer"
               aria-label="Instagram"
               className="inline-flex h-7 w-7 items-center justify-center rounded-sm hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:h-6 md:w-6"
             >
@@ -176,7 +180,9 @@ export function SiteHeader({ navItems = defaultNavItems }: SiteHeaderProps) {
             {/* Redes en mobile (en flujo, para evitar solapes) */}
             <div className="mt-3 flex items-center justify-center gap-2">
               <a
-                href="#"
+                href="https://www.facebook.com/share/1CWxXMY6RT/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noreferrer"
                 aria-label="Facebook"
                 className="inline-flex h-8 w-8 items-center justify-center rounded-sm text-white/95 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
@@ -188,7 +194,9 @@ export function SiteHeader({ navItems = defaultNavItems }: SiteHeaderProps) {
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/apterritorial?igsh=NnYzM2Q3cjJ2OHVu"
+                target="_blank"
+                rel="noreferrer"
                 aria-label="Instagram"
                 className="inline-flex h-8 w-8 items-center justify-center rounded-sm text-white/95 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >

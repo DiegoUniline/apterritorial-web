@@ -11,7 +11,7 @@ export function ProyectosRecientes() {
     <section id="trabajo" className="bg-white">
       {/* Banda blanca con título (como en el screenshot) */}
       <div className="py-10 sm:py-12">
-        <h2 className="px-4 text-center text-3xl font-light tracking-[0.18em] text-[#9a9a9a] sm:text-4xl md:text-5xl">
+        <h2 className="apt-title-main px-4 text-center">
           PROYECTOS RECIENTES
         </h2>
       </div>
@@ -41,10 +41,10 @@ export function ProyectosRecientes() {
               <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#653621]/90 via-[#653621]/35 to-transparent" />
 
               <div className="absolute bottom-5 left-5 right-12 text-white">
-                <h3 className="text-lg font-semibold uppercase tracking-wide">
+                <h3 className="apt-fs-subtitle font-semibold uppercase tracking-wide text-white">
                   {p.title}
                 </h3>
-                <p className="mt-1 text-[13px] text-white/90">{p.subtitle}</p>
+                <p className="apt-fs-info mt-1 text-white/90">{p.subtitle}</p>
               </div>
 
               {/* Ícono tipo “descarga” (abajo derecha) como en el screenshot */}

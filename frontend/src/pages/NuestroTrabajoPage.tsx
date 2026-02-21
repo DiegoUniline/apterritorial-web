@@ -26,7 +26,7 @@ export function NuestroTrabajoPage() {
     <div className="bg-white">
       {/* Título principal grande (gris) */}
       <header className="py-10 sm:py-12">
-        <h1 className="px-4 text-center text-3xl font-light tracking-[0.18em] text-[var(--apt-gray-title)] sm:text-4xl md:text-5xl">
+        <h1 className="apt-title-main px-4 text-center">
           PLANES, PROGRAMAS Y PROYECTOS
         </h1>
       </header>
@@ -98,18 +98,18 @@ export function NuestroTrabajoPage() {
           >
             {/* Columna izquierda (texto) */}
             <div className="text-white">
-              <h2 className="whitespace-pre-line text-lg font-bold uppercase tracking-wide md:text-xl">
+              <h2 className="apt-fs-title whitespace-pre-line font-bold uppercase tracking-wide text-white">
                 {active.heading}
               </h2>
 
               {active.content.type === 'sections' ? (
                 active.content.sections.map((sec) => (
                   <div key={sec.title} className="mt-8">
-                    <h3 className="text-[15px] font-bold uppercase tracking-[0.14em] text-white/95">
+                    <h3 className="apt-fs-subtitle font-bold uppercase tracking-[0.14em] text-white/95">
                       {sec.subtitle}
                     </h3>
 
-                    <ul className="mt-4 space-y-4 text-[14px] leading-[1.65] text-white/90">
+                    <ul className="apt-fs-info mt-4 space-y-4 leading-[1.65] text-white/90">
                       {sec.items.map((it) => (
                         <li key={`${sec.title}-${it.name}`} className="relative pl-4">
                           <span
@@ -130,7 +130,7 @@ export function NuestroTrabajoPage() {
                   </div>
                 ))
               ) : (
-                <div className="mt-6 space-y-4 text-[15px] leading-[1.7] text-white/90">
+                <div className="apt-fs-info mt-6 space-y-4 leading-[1.7] text-white/90">
                   {active.content.paragraphs.map((p) => (
                     <p key={p}>{p}</p>
                   ))}

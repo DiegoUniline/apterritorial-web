@@ -19,7 +19,7 @@ export function ServiciosPage() {
     <div className="bg-white">
       {/* Título principal grande (gris) */}
       <header className="py-10 sm:py-12">
-        <h1 className="px-4 text-center text-3xl font-light tracking-[0.18em] text-[var(--apt-gray-title)] sm:text-4xl md:text-5xl">
+        <h1 className="apt-title-main px-4 text-center">
           {serviciosTitle}
         </h1>
       </header>
@@ -39,10 +39,10 @@ export function ServiciosPage() {
             <div className="text-white">
               {serviciosBloques.map((b) => (
                 <div key={b.title} className="mb-10 last:mb-0">
-                  <h2 className="whitespace-pre-line text-[20px] font-bold uppercase leading-tight tracking-[0.06em] md:text-[22px]">
+                  <h2 className="apt-fs-subtitle whitespace-pre-line font-bold uppercase leading-tight tracking-[0.06em] text-white">
                     {b.title}
                   </h2>
-                  <ul className="mt-4 space-y-2 text-[15px] leading-[1.7] text-white/90">
+                  <ul className="apt-fs-info mt-4 space-y-2 leading-[1.7] text-white/90">
                     {b.items.map((it) => (
                       <li key={it} className="flex gap-2">
                         <span aria-hidden="true">-</span>

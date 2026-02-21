@@ -26,6 +26,16 @@
   /* Grises de títulos */
   --apt-gray-title: #9a9a9a;
   --apt-gray-subtitle: #888888;
+
+  /*
+    Escala tipográfica global (pedido del usuario).
+    - Qué hace: define tamaños base reutilizables (px) para estandarizar el sitio.
+    - Por qué: el usuario pidió consistencia total (Título principal 18, secundario 16, info 14).
+    - Relacionado con: `src/pages/*` y secciones del Home (títulos/labels/tooltips).
+  */
+  --apt-fs-title: 18px;
+  --apt-fs-subtitle: 16px;
+  --apt-fs-info: 14px;
 }
 
 html {
@@ -46,6 +56,61 @@ body {
   font-family: Arial, sans-serif;
   color: #333;
   line-height: 1.6;
+  /*
+    Base de texto (info).
+    - Qué hace: fija el tamaño base a 14px para que el body sea consistente.
+    - Por qué: evita que cada componente “invente” tamaños y termine viéndose desparejo (ej. Contacto).
+    - Relacionado con: `ContactoPage.tsx` (labels/inputs) y textos generales.
+  */
+  font-size: var(--apt-fs-info);
+}
+
+/*
+  Clases tipográficas reutilizables.
+  - Qué hace: expone utilidades simples para tamaño + color.
+  - Por qué: así estandarizamos sin reescribir Tailwind a mano en cada componente.
+  - Relacionado con: `src/pages/*` (títulos) y `src/components/home/*` (tooltips/cards).
+*/
+@layer components {
+  /* Tamaños (solo font-size) */
+  .apt-fs-title {
+    font-size: var(--apt-fs-title);
+  }
+  .apt-fs-subtitle {
+    font-size: var(--apt-fs-subtitle);
+  }
+  .apt-fs-info {
+    font-size: var(--apt-fs-info);
+  }
+
+  /* Combinaciones comunes (tamaño + color + tracking) */
+  .apt-title-main {
+    font-size: var(--apt-fs-title);
+    color: var(--apt-gray-title);
+    font-weight: 300;
+    letter-spacing: 0.18em;
+  }
+  .apt-title-secondary {
+    font-size: var(--apt-fs-subtitle);
+    color: var(--apt-gray-subtitle);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+  .apt-info {
+    font-size: var(--apt-fs-info);
+    color: #333;
+  }
+
+  /*
+    Números KPI (barra 8/74/37).
+    - Qué hace: define un tamaño responsive (más grande que 18) para los números, sin volverlos “gigantes”.
+    - Por qué: el usuario pidió subir el tamaño porque se veían muy pequeños, pero mantener consistencia global.
+    - Relacionado con: `src/components/shared/ExperienceStatsBar.tsx`.
+  */
+  .apt-kpi {
+    font-size: clamp(32px, 4.6vw, 56px);
+    line-height: 1;
+  }
 }
 
 /*

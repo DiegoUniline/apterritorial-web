@@ -12,7 +12,7 @@ export function Experiencia() {
     <section className="bg-white">
       {/* Banda blanca con título */}
       <div className="py-10 sm:py-12">
-        <h2 className="px-4 text-center text-3xl font-light tracking-[0.18em] text-[var(--apt-gray-title)] sm:text-4xl md:text-5xl">
+        <h2 className="apt-title-main px-4 text-center">
           EXPERIENCIA
         </h2>
       </div>

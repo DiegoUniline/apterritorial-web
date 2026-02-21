@@ -4,14 +4,8 @@
  * - Por qué: el menú del header enlaza a `#quienes-somos`; sin esta sección el link no “lleva” a ningún lado.
  * - Relacionado con: `src/components/layout/SiteHeader.tsx` (href `#quienes-somos`) y `Diseño actual/Quienes somos.txt` (maqueta HTML).
  */
-import { useMemo, useRef } from 'react'
-import { useCountUp, useInViewOnce } from '@/hooks/useCountUpOnView'
-
-type Stat = {
-  label: string
-  sublabel?: string
-  value: number
-}
+import { useMemo } from 'react'
+import { ExperienceStatsBar } from '@/components/shared/ExperienceStatsBar'
 
 type Coordinador = {
   name: string
@@ -20,22 +14,6 @@ type Coordinador = {
 }
 
 export function QuienesSomosSection() {
-  const statsRef = useRef<HTMLElement | null>(null)
-  const statsInView = useInViewOnce(statsRef, { threshold: 0.5, rootMargin: '0px' })
-
-  const stats: Stat[] = useMemo(
-    () => [
-      { value: 8, label: 'ESTADOS' },
-      {
-        value: 74,
-        label: 'PLANES, PROGRAMAS Y PROYECTOS',
-        sublabel: 'REALIZADOS EN EL PAÍS',
-      },
-      { value: 37, label: 'MUNICIPIOS' },
-    ],
-    [],
-  )
-
   const coordinadores: Coordinador[] = useMemo(
     () => [
       {
@@ -62,11 +40,6 @@ export function QuienesSomosSection() {
     ],
     [],
   )
-
-  const counted0 = useCountUp(stats[0].value, statsInView)
-  const counted1 = useCountUp(stats[1].value, statsInView)
-  const counted2 = useCountUp(stats[2].value, statsInView)
-  const countedValues = [counted0, counted1, counted2]
 
   return (
     <section id="quienes-somos" className="bg-white">
@@ -201,47 +174,12 @@ export function QuienesSomosSection() {
 
       {/* STATS */}
       {/*
-        Stats con contador:
-        - Qué hace: anima 0→8 / 0→74 / 0→37 al entrar en viewport.
-        - Por qué: en la maqueta se anima al ver la sección.
-        - Relacionado con: `Diseño actual/Quienes somos.txt` (script de contador).
+        Barra de estadísticas estandarizada:
+        - Qué hace: reutiliza la misma barra (tipografía/tamaños/colores) usada en Home, Servicios, Contacto y Nuestro Trabajo.
+        - Por qué: el usuario pidió que sea la misma en TODAS las páginas.
+        - Relacionado con: `src/components/shared/ExperienceStatsBar.tsx`.
       */}
-      <section ref={statsRef} className="bg-[var(--apt-brown)] px-4 py-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 sm:flex-row sm:gap-5">
-          {stats.map((s, idx) => (
-            <div
-              key={s.label}
-              className="flex w-full flex-1 flex-col items-center text-center text-white"
-            >
-              <div className="min-h-[80px] text-[60px] font-bold leading-none text-[var(--apt-cream)] max-sm:text-[48px]">
-                {countedValues[idx]}
-              </div>
-              <div className="mt-3 whitespace-pre-line text-xs font-semibold uppercase tracking-[0.14em] text-white/95">
-                {s.label}
-              </div>
-              {s.sublabel ? (
-                <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/90">
-                  {s.sublabel}
-                </div>
-              ) : null}
-
-              {/* Check icon circular como en la maqueta */}
-              <div className="mt-4 flex h-[35px] w-[35px] items-center justify-center rounded-full bg-white">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-4 w-4 text-[var(--apt-brown)]"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8.5-8.5 1.4 1.4-9.9 9.9Z"
-                  />
-                </svg>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <ExperienceStatsBar />
     </section>
   )
 }

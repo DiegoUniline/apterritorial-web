@@ -26,7 +26,9 @@ export function SiteFooter() {
         */}
         <div className="mb-8 flex items-center justify-center gap-2 sm:mb-0 sm:absolute sm:right-4 sm:top-6">
           <a
-            href="#"
+            href="https://www.facebook.com/share/1CWxXMY6RT/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noreferrer"
             aria-label="Facebook"
             className="inline-flex h-6 w-6 items-center justify-center text-white/90 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
           >
@@ -38,7 +40,9 @@ export function SiteFooter() {
             </svg>
           </a>
           <a
-            href="#"
+            href="https://www.instagram.com/apterritorial?igsh=NnYzM2Q3cjJ2OHVu"
+            target="_blank"
+            rel="noreferrer"
             aria-label="Instagram"
             className="inline-flex h-6 w-6 items-center justify-center text-white/90 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
           >

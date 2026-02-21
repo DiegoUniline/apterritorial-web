@@ -143,13 +143,13 @@ export function ExperienceMap() {
           </div>
 
           {experienceDetailsByStateId[active.stateId]?.length ? (
-            <ul className="mt-2 list-disc space-y-1 pl-4 text-[13px] leading-snug text-neutral-700">
+            <ul className="apt-fs-info mt-2 list-disc space-y-1 pl-4 leading-snug text-neutral-700">
               {experienceDetailsByStateId[active.stateId]!.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
           ) : (
-            <div className="mt-2 text-[13px] text-neutral-600">
+            <div className="apt-fs-info mt-2 text-neutral-600">
               Sin información detallada configurada para este estado.
             </div>
           )}

@@ -35,15 +35,27 @@ export function ExperienceStatsBar({ id, className }: Props) {
     <div
       id={id}
       ref={statsRef}
-      className={['bg-[var(--apt-brown)] py-10', className].filter(Boolean).join(' ')}
+      className={[
+        'bg-[var(--apt-brown)] py-6 sm:py-7',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
     >
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-4 md:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-5 px-4 md:grid-cols-3">
         {experienciaStats.map((s, idx) => (
           <div key={s.label} className="text-center text-white">
-            <div className="text-5xl font-bold leading-none text-[var(--apt-cream)] sm:text-6xl">
+            {/* 
+              Números KPI:
+              - Qué hace: usa la escala tipográfica global (18/16/14).
+              - Por qué: el usuario pidió que ESTA sección (reutilizada en todas las páginas) no se vea “super grande”.
+              - Relacionado con: `src/components/home/Experiencia.tsx` (barra) y pedido de tipografía global en `.cursorrules`.
+            */}
+            <div className="apt-kpi font-bold text-[var(--apt-cream)]">
               {countedValues[idx] ?? 0}
             </div>
-            <div className="mt-3 whitespace-pre-line text-xs font-semibold uppercase tracking-[0.14em] text-white/95">
+            {/* Labels estandarizados (Info = 14px) */}
+            <div className="apt-fs-info mt-3 whitespace-pre-line font-semibold uppercase tracking-[0.14em] text-white/95">
               {s.label}
             </div>
 
