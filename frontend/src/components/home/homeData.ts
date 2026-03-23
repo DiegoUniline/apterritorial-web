@@ -9,7 +9,8 @@ export type ProyectoReciente = {
   title: string
   subtitle: string
   imageUrl: string
-  href: string
+  carouselImageUrls?: string[]
+  href?: string
 }
 
 export type ExperienciaStat = {
@@ -21,7 +22,7 @@ export const HOME_SUBTITLE =
   'CONSULTORÍA Y ASESORÍA PARA EL DESARROLLO URBANO Y REGIONAL'
 
 export const HERO_VIDEO_URL =
-  'https://res.cloudinary.com/dstcnsu6a/video/upload/v1765474322/para_web_ejbj49.mp4'
+  '/apt-video-banner.mp4'
 
 export const proyectosRecientes: ProyectoReciente[] = [
   {
@@ -34,46 +35,49 @@ export const proyectosRecientes: ProyectoReciente[] = [
     title: 'SAN FELIPE DE JESUS',
     subtitle:
       'Plan Municipal de desarrollo de San Felipe de Jesús, 2025-2027',
-    imageUrl:
-      'https://res.cloudinary.com/dstcnsu6a/image/upload/v1765474254/Imagen1_dlf3ld.jpg',
-    href: 'https://drive.google.com/file/d/1duUMOOiBSLjC7EdZO2P8vIqCRpvV-0OP/view?usp=sharing',
+    imageUrl: '/proyectos-recientes/san-felipe-imagen1.jpg',
+    href: '/proyectos-recientes/san-felipe-descargable.pdf',
   },
   {
     title: 'ARIZPE',
     subtitle: 'Programa Municipal de Desarrollo Urbano de Arizpe',
-    imageUrl:
-      'https://res.cloudinary.com/dstcnsu6a/image/upload/v1765474265/20221005_142125_lndjvc.jpg',
-    href: 'https://drive.google.com/file/d/105P9NxHVHMzrjdTsNxDeIykd0URD63fW/view?usp=sharing',
+    imageUrl: '/proyectos-recientes/arizpe-imagen.jpg',
+    href: '/proyectos-recientes/arizpe-descargable.pdf',
   },
   {
     title: 'CABORCA',
     subtitle: 'Programa Municipal de Desarrollo Urbano de Caborca',
-    imageUrl:
-      'https://res.cloudinary.com/dstcnsu6a/image/upload/v1765474275/Captura_de_pantalla_2025-07-16_142428_kmsyyv.png',
-    href: 'https://drive.google.com/drive/folders/1nJYZQBoeVDTAlgIQM2DGI6OZfiKBI1uA?usp=sharing',
+    imageUrl: '/proyectos-recientes/caborca-imagen-principal.png',
+    carouselImageUrls: [
+      '/proyectos-recientes/caborca-imagen-principal.png',
+      '/proyectos-recientes/caborca-imagen.jpg',
+    ],
+    href: '/proyectos-recientes/caborca-descargable.pdf',
   },
   {
     title: 'G. PLUTARCO ELÍAS CALLES',
     subtitle:
       'Programa Municipal de Desarrollo Urbano de Gral. Plutarco Elías Calles',
-    imageUrl:
-      'https://res.cloudinary.com/dstcnsu6a/image/upload/v1765474277/PXL_20250321_215817035.MP_pm0uyw.jpg',
-    href: 'https://drive.google.com/file/d/10AiRVk16E565loPFeigzl22NMcQ8m3-R/view?usp=sharing',
+    imageUrl: '/proyectos-recientes/plutarco-imagen.jpg',
+    carouselImageUrls: [
+      '/proyectos-recientes/plutarco-imagen.jpg',
+      '/proyectos-recientes/plutarco-descargable.jpg',
+    ],
   },
   {
     title: 'MOCTEZUMA',
     subtitle: 'Programa Municipal de Desarrollo Urbano de Moctezuma',
-    imageUrl:
-      'https://res.cloudinary.com/dstcnsu6a/image/upload/v1765474284/PXL_20231201_225148607_wrpce8.jpg',
-    href: 'https://drive.google.com/file/d/1TNp1L5F28CXKdCApnAeBcsr6IQGiAu0_/view?usp=sharing',
+    imageUrl: '/proyectos-recientes/moctezuma-imagen.jpg',
   },
   {
     title: 'PUERTO PEÑASCO',
     subtitle:
       'Actualización del Programa Municipal de Desarrollo Urbano de Puerto Peñasco',
-    imageUrl:
-      'https://res.cloudinary.com/dstcnsu6a/image/upload/v1765474254/Imagen1_dlf3ld.jpg',
-    href: 'https://drive.google.com/drive/folders/1kz3cqe3J8qnuTvxZeR44lLeDAhk1EkAT?usp=sharing',
+    imageUrl: '/proyectos-recientes/puerto-penasco-imagen.jpg',
+    carouselImageUrls: [
+      '/proyectos-recientes/puerto-penasco-imagen.jpg',
+      '/proyectos-recientes/puerto-penasco-descargable.jpg',
+    ],
   },
 ]
 
