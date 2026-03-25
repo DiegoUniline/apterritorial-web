@@ -5,6 +5,7 @@
  * - Relacionado con: `Diseño actual/Home.txt` (mapa/contenedor) y `HOME APT – 1.jpg` (métricas).
  */
 import { ExperienceMap } from '@/components/home/ExperienceMap'
+import { ExperienceLogosCarousel } from '@/components/home/ExperienceLogosCarousel'
 import { ExperienceStatsBar } from '@/components/shared/ExperienceStatsBar'
 
 export function Experiencia() {
@@ -52,6 +53,9 @@ export function Experiencia() {
           </div>
         </div>
       </div>
+
+      {/* Carrusel de logos institucionales debajo del mapa (pedido del usuario). */}
+      <ExperienceLogosCarousel />
     </section>
   )
 }

@@ -125,3 +125,26 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/*
+  Animación del carrusel de logos:
+  - Qué hace: desplaza la pista horizontal para simular un loop continuo.
+  - Por qué: se necesita mostrar múltiples logos debajo del mapa sin controles.
+  - Relacionado con: `src/components/home/ExperienceLogosCarousel.tsx`.
+*/
+@keyframes apt-logo-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-carousel-track {
+  animation: apt-logo-scroll 52s linear infinite;
+}
+
+.logo-carousel-viewport:hover .logo-carousel-track {
+  animation-play-state: paused;
+}
