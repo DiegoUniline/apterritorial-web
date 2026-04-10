@@ -4,14 +4,14 @@
  * - Por qué: estandarizar el menú entre Home y futuras páginas (ej: "¿Quiénes somos?") sin duplicar código.
  * - Relacionado con: `src/components/home/Header.tsx` (wrapper legacy) y `src/pages/HomePage.tsx` (uso actual).
  */
-import { HOME_SUBTITLE } from '@/components/home/homeData'
-import { Link, useLocation } from 'react-router-dom'
-import { useEffect, useId, useState } from 'react'
+import { HOME_SUBTITLE } from "@/components/home/homeData";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect, useId, useState } from "react";
 
 export type SiteNavItem = {
-  label: string
-  to: string
-}
+  label: string;
+  to: string;
+};
 
 type SiteHeaderProps = {
   /**
@@ -20,16 +20,16 @@ type SiteHeaderProps = {
    * - Por qué: hoy usamos anchors (#inicio, #quienes-somos, etc.), pero mañana puede ser routing real.
    * - Relacionado con: `src/components/layout/SiteHeader.tsx` (este archivo).
    */
-  navItems?: readonly SiteNavItem[]
-}
+  navItems?: readonly SiteNavItem[];
+};
 
 const defaultNavItems = [
-  { label: 'INICIO', to: '/' },
-  { label: '¿QUIÉNES SOMOS?', to: '/quienes-somos' },
-  { label: 'NUESTRO TRABAJO', to: '/nuestro-trabajo' },
-  { label: 'SERVICIOS', to: '/servicios' },
-  { label: 'CONTACTO', to: '/contacto' },
-] as const satisfies readonly SiteNavItem[]
+  { label: "INICIO", to: "/" },
+  { label: "¿QUIÉNES SOMOS?", to: "/quienes-somos" },
+  { label: "NUESTRO TRABAJO", to: "/nuestro-trabajo" },
+  { label: "SERVICIOS", to: "/servicios" },
+  { label: "CONTACTO", to: "/contacto" },
+] as const satisfies readonly SiteNavItem[];
 
 export function SiteHeader({ navItems = defaultNavItems }: SiteHeaderProps) {
   /**
@@ -38,14 +38,14 @@ export function SiteHeader({ navItems = defaultNavItems }: SiteHeaderProps) {
    * - Por qué: el usuario pidió que el menú sea responsive en todas las páginas.
    * - Relacionado con: `src/components/layout/SiteHeader.tsx` (este archivo) y `src/components/layout/SiteLayout.tsx`.
    */
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const mobileMenuId = useId()
-  const location = useLocation()
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const mobileMenuId = useId();
+  const location = useLocation();
 
   // Cierra el menú si cambia la ruta/hash (evita que se quede abierto al navegar).
   useEffect(() => {
-    setMobileOpen(false)
-  }, [location.hash, location.pathname, location.search])
+    setMobileOpen(false);
+  }, [location.hash, location.pathname, location.search]);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-white shadow-sm">
@@ -76,7 +76,7 @@ export function SiteHeader({ navItems = defaultNavItems }: SiteHeaderProps) {
           {/* Botón hamburguesa (solo mobile) */}
           <button
             type="button"
-            aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={mobileOpen}
             aria-controls={mobileMenuId}
             onClick={() => setMobileOpen((v) => !v)}
@@ -101,15 +101,24 @@ export function SiteHeader({ navItems = defaultNavItems }: SiteHeaderProps) {
             aria-label="Navegación principal"
             className="hidden items-center justify-center gap-8 text-[11px] font-semibold uppercase tracking-[0.22em] text-white md:flex"
           >
-            {navItems.map((item) => (
-              <Link
-                key={`${item.to}-${item.label}`}
-                to={item.to}
-                className="rounded-sm px-2 py-1 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const active = location.pathname === item.to;
+              return (
+                <Link
+                  key={`${item.to}-${item.label}`}
+                  to={item.to}
+                  aria-current={active ? "page" : undefined}
+                  className={[
+                    "rounded-sm px-2 py-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70",
+                    active
+                      ? "bg-white/25 font-extrabold text-white underline-offset-4 decoration-white/70"
+                      : "hover:bg-white/15",
+                  ].join(" ")}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Redes a la derecha */}
@@ -154,27 +163,33 @@ export function SiteHeader({ navItems = defaultNavItems }: SiteHeaderProps) {
         {/* Menú desplegable mobile (debajo de la barra café) */}
         <div
           id={mobileMenuId}
-          className={[
-            'md:hidden',
-            mobileOpen ? 'block' : 'hidden',
-          ].join(' ')}
+          className={["md:hidden", mobileOpen ? "block" : "hidden"].join(" ")}
         >
           <nav
             aria-label="Navegación principal (móvil)"
             className="border-t border-white/20 bg-[#C87D4A] px-4 py-3"
           >
             <ul className="flex flex-col gap-2">
-              {navItems.map((item) => (
-                <li key={`m-${item.to}-${item.label}`}>
-                  <Link
-                    to={item.to}
-                    onClick={() => setMobileOpen(false)}
-                    className="block rounded-sm px-3 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-white/95 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+              {navItems.map((item) => {
+                const active = location.pathname === item.to;
+                return (
+                  <li key={`m-${item.to}-${item.label}`}>
+                    <Link
+                      to={item.to}
+                      onClick={() => setMobileOpen(false)}
+                      aria-current={active ? "page" : undefined}
+                      className={[
+                        "block rounded-sm px-3 py-2 text-sm uppercase tracking-[0.18em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70",
+                        active
+                          ? "bg-white/25 font-extrabold text-white underline underline-offset-4 decoration-white/70"
+                          : "font-semibold text-white/95 hover:bg-white/15",
+                      ].join(" ")}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
 
             {/* Redes en mobile (en flujo, para evitar solapes) */}
@@ -212,6 +227,5 @@ export function SiteHeader({ navItems = defaultNavItems }: SiteHeaderProps) {
         </div>
       </div>
     </header>
-  )
+  );
 }
-

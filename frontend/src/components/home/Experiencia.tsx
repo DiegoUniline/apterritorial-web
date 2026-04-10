@@ -4,18 +4,16 @@
  * - Por qué: reproduce la estructura visual del diseño (screenshot) y el HTML de referencia.
  * - Relacionado con: `Diseño actual/Home.txt` (mapa/contenedor) y `HOME APT – 1.jpg` (métricas).
  */
-import { ExperienceMap } from '@/components/home/ExperienceMap'
-import { ExperienceLogosCarousel } from '@/components/home/ExperienceLogosCarousel'
-import { ExperienceStatsBar } from '@/components/shared/ExperienceStatsBar'
+import { ExperienceMap } from "@/components/home/ExperienceMap";
+import { ExperienceLogosCarousel } from "@/components/home/ExperienceLogosCarousel";
+import { ExperienceStatsBar } from "@/components/shared/ExperienceStatsBar";
 
 export function Experiencia() {
   return (
     <section className="bg-white">
       {/* Banda blanca con título */}
       <div className="py-10 sm:py-12">
-        <h2 className="apt-title-main px-4 text-center">
-          EXPERIENCIA
-        </h2>
+        <h2 className="apt-title-main px-4 text-center">EXPERIENCIA</h2>
       </div>
 
       {/* Barra café con métricas */}
@@ -54,9 +52,16 @@ export function Experiencia() {
         </div>
       </div>
 
-      {/* Carrusel de logos institucionales debajo del mapa (pedido del usuario). */}
-      <ExperienceLogosCarousel />
-    </section>
-  )
-}
+      <div className="bg-gray-600">
+        <div className="bg-white py-10 sm:py-12 mb-8">
+          <h2 className="apt-title-main px-4 text-center">
+            COLABORADORES Y CLIENTES
+          </h2>
+        </div>
 
+        {/* Carrusel de logos institucionales debajo del mapa (pedido del usuario). */}
+        <ExperienceLogosCarousel />
+      </div>
+    </section>
+  );
+}

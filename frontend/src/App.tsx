@@ -9,6 +9,7 @@ import { QuienesSomosPage } from '@/pages/QuienesSomosPage'
 import { NuestroTrabajoPage } from '@/pages/NuestroTrabajoPage'
 import { ServiciosPage } from '@/pages/ServiciosPage'
 import { ContactoPage } from '@/pages/ContactoPage'
+import { NotFoundPage } from '@/pages/NotFoundPage'
 import { SiteLayout } from '@/components/layout/SiteLayout'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/nuestro-trabajo" element={<NuestroTrabajoPage />} />
           <Route path="/servicios" element={<ServiciosPage />} />
           <Route path="/contacto" element={<ContactoPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -4,42 +4,42 @@
  * - Por qué: el menú del header enlaza a `#quienes-somos`; sin esta sección el link no “lleva” a ningún lado.
  * - Relacionado con: `src/components/layout/SiteHeader.tsx` (href `#quienes-somos`) y `Diseño actual/Quienes somos.txt` (maqueta HTML).
  */
-import { useMemo } from 'react'
-import { ExperienceStatsBar } from '@/components/shared/ExperienceStatsBar'
+import { useMemo } from "react";
+import { ExperienceStatsBar } from "@/components/shared/ExperienceStatsBar";
 
 type Coordinador = {
-  name: string
-  imageUrl: string
-  paragraphs: string[]
-}
+  name: string;
+  imageUrl: string;
+  paragraphs: string[];
+};
 
 export function QuienesSomosSection() {
   const coordinadores: Coordinador[] = useMemo(
     () => [
       {
-        name: 'Luis Fernando Puebla Gutiérrez',
+        name: "Mtro. Luis Fernando Puebla Gutiérrez",
         imageUrl:
-          'https://res.cloudinary.com/dstcnsu6a/image/upload/v1763394924/LuisFernando_jws1oj.png',
+          "https://res.cloudinary.com/dstcnsu6a/image/upload/v1763394924/LuisFernando_jws1oj.png",
         paragraphs: [
-          'Es Diseñador de los Asentamientos Humanos egresado de la Universidad Autónoma Metropolitana con Maestría en Desarrollo Urbano por El Colegio de México.',
-          'Ha dirigido la elaboración de más de 50 programas de desarrollo urbano. Asimismo, ha coordinado la elaboración de estrategias de desarrollo regional y de ordenamiento territorial para diversas entidades federativas.',
-          'En el Gobierno Federal, fue Director General Adjunto de Desarrollo Regional de la Secretaría de Desarrollo Social (ahora SEDATU); y en el Gobierno del Estado de Sonora, fungió como Director General de Planeación Urbana y Ordenamiento Territorial de la Secretaría de Infraestructura y Desarrollo Urbano.',
-          'Ha participado en distintas iniciativas y organizaciones como presidente de la Sociedad de Urbanismo de Sonora, integrante del equipo de consultores de la ONU-Hábitat para la Iniciativa de Ciudades Prósperas y como tesorero de la Fundación UAM.',
+          "Es Diseñador de los Asentamientos Humanos egresado de la Universidad Autónoma Metropolitana con Maestría en Desarrollo Urbano por El Colegio de México.",
+          "Ha dirigido la elaboración de más de 50 programas de desarrollo urbano. Asimismo, ha coordinado la elaboración de estrategias de desarrollo regional y de ordenamiento territorial para diversas entidades federativas.",
+          "En el Gobierno Federal, fue Director General Adjunto de Desarrollo Regional de la Secretaría de Desarrollo Social (ahora SEDATU); y en el Gobierno del Estado de Sonora, fungió como Director General de Planeación Urbana y Ordenamiento Territorial de la Secretaría de Infraestructura y Desarrollo Urbano.",
+          "Ha participado en distintas iniciativas y organizaciones como presidente de la Sociedad de Urbanismo de Sonora, integrante del equipo de consultores de la ONU-Hábitat para la Iniciativa de Ciudades Prósperas y como tesorero de la Fundación UAM.",
         ],
       },
       {
-        name: 'Luis Fernando Puebla Corella',
+        name: "Dr. Luis Fernando Puebla Corella",
         imageUrl:
-          'https://res.cloudinary.com/dstcnsu6a/image/upload/v1763395122/LuisFernando_Dos_2_ky9zle.png',
+          "https://res.cloudinary.com/dstcnsu6a/image/upload/v1763395122/LuisFernando_Dos_2_ky9zle.png",
         paragraphs: [
-          'Es egresado con honores de la Licenciatura en Planeación Territorial de la Universidad Autónoma Metropolitana con Maestría en Ciencias Sociales por El Colegio de Sonora y próximamente doctorado por la misma institución.',
-          'Dentro de su experiencia laboral se ha desempeñado como coordinador de una decena de programas de desarrollo urbano municipales y de centros de población; responsable de estudios y reportes sobre abandono de vivienda, estrategias de localización portuaria y de expansión empresarial; así como colaborador en programas de ordenamiento ecológico regionales y parciales de desarrollo urbano en distintas entidades del país.',
-          'También, cuenta con publicaciones sobre temáticas relacionadas a la movilidad laboral, las políticas de desarrollo territorial y especulación inmobiliaria. Actualmente, se desenvuelve como profesor de las asignaturas relacionadas al urbanismo en la carrera de arquitectura de la Universidad de Sonora.',
+          "Es egresado con honores de la Licenciatura en Planeación Territorial de la Universidad Autónoma Metropolitana con Maestría en Análisis y Evaluación de Políticas Públicas y Doctorado en Ciencias Sociales, ambos por El Colegio de Sonora.",
+          "Dentro de su experiencia laboral se ha desempeñado como coordinador de una decena de programas de desarrollo urbano municipales y de centros de población; responsable de estudios y reportes sobre abandono de vivienda, estrategias de localización portuaria y de expansión empresarial; así como colaborador en programas de ordenamiento ecológico regionales y parciales de desarrollo urbano en distintas entidades del país.",
+          "También, cuenta con publicaciones sobre temáticas relacionadas a la movilidad laboral, las políticas de desarrollo territorial y especulación inmobiliaria. Actualmente, se desenvuelve como profesor de las asignaturas relacionadas al urbanismo en la carrera de arquitectura de la Universidad de Sonora.",
         ],
       },
     ],
     [],
-  )
+  );
 
   return (
     <section id="quienes-somos" className="bg-white">
@@ -92,9 +92,9 @@ export function QuienesSomosSection() {
             - Por qué: el `logo.png` actual es a color; aplicarle `invert` lo degradaba y podía verse como “caja blanca” sin logo.
             - Relacionado con: referencia visual de la sección central (tu captura).
           */}
-          <div className="mx-auto mb-10 w-fit bg-white px-7 py-4 max-sm:mb-8 max-sm:px-5 max-sm:py-3">
+          <div className="mx-auto mb-10 w-fit px-7 py-4 max-sm:mb-8 max-sm:px-5 max-sm:py-3">
             <img
-              src="/logo.png"
+              src="/logo2.jpeg"
               alt="APT - Agencia de Planeación Territorial"
               className="h-auto w-[235px] max-sm:w-[200px]"
               loading="lazy"
@@ -104,16 +104,17 @@ export function QuienesSomosSection() {
 
           <div className="space-y-5 text-[17px] font-light leading-[1.8] tracking-[0.3px] [text-shadow:1px_1px_2px_rgba(0,0,0,0.5)] max-sm:text-[16px] max-sm:text-center">
             <p className="text-justify max-sm:text-center">
-              Somos una firma que representa a un conjunto de consultores
-              especializados en desarrollo urbano y regional, con integrantes que
-              suman más de 40 años de experiencia impulsando proyectos que
+              Somos una organización que representa a un conjunto de consultores
+              especializados en desarrollo urbano y regional, con integrantes
+              que suman más de 40 años de experiencia impulsando proyectos que
               transforman el territorio y mejoran la calidad de vida en México.
             </p>
             <p className="text-justify max-sm:text-center">
-              Nuestro equipo multidisciplinario integra expertos en planificación
-              y diseño urbano, desarrollo regional, políticas públicas y gestión
-              de proyectos, comprometidos con ofrecer soluciones sostenibles,
-              innovadoras y adaptadas a las necesidades de cada comunidad.
+              Nuestro equipo multidisciplinario integra expertos en
+              planificación y diseño urbano, desarrollo regional, políticas
+              públicas y gestión de proyectos, comprometidos con ofrecer
+              soluciones sostenibles, innovadoras y adaptadas a las necesidades
+              de cada comunidad.
             </p>
             <p className="text-justify max-sm:text-center">
               A lo largo de nuestra trayectoria individual y conjunta, hemos
@@ -123,8 +124,8 @@ export function QuienesSomosSection() {
               desarrollo equilibrado del territorio.
             </p>
             <p className="text-justify max-sm:text-center">
-              Somos aliados estratégicos en la construcción de entornos urbanos y
-              regionales más justos, inclusivos, asequibles y sostenibles.
+              Somos aliados estratégicos en la construcción de entornos urbanos
+              y regionales más justos, inclusivos, asequibles y sostenibles.
             </p>
           </div>
         </div>
@@ -181,6 +182,5 @@ export function QuienesSomosSection() {
       */}
       <ExperienceStatsBar />
     </section>
-  )
+  );
 }
-

@@ -31,23 +31,26 @@ export function ServiciosPage() {
           style={{ backgroundImage: `url('${trabajoImages.background}')` }}
           aria-label="Servicios"
         >
-          {/* Overlay suave para legibilidad */}
-          <div className="absolute inset-0 bg-black/20" />
+          {/* Overlay oscuro para legibilidad */}
+          <div className="absolute inset-0 bg-black/55" />
 
           <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 pb-16 pt-10 md:grid-cols-[1.1fr_0.9fr] md:gap-12 md:pt-16">
             {/* Columna izquierda (texto) */}
             <div className="text-white">
               {serviciosBloques.map((b) => (
                 <div key={b.title} className="mb-10 last:mb-0">
-                  <h2 className="apt-fs-subtitle whitespace-pre-line font-bold uppercase leading-tight tracking-[0.06em] text-white">
+                  <h2
+                    className="apt-fs-subtitle whitespace-pre-line font-bold uppercase leading-tight tracking-[0.06em] text-white"
+                    style={{ textShadow: '0 1px 5px rgba(0,0,0,0.9)' }}
+                  >
                     {b.title}
                   </h2>
-                  <ul className="apt-fs-info mt-4 space-y-2 leading-[1.7] text-white/90">
+                  <ul
+                    className="mt-4 list-disc pl-7 space-y-2 text-[15px] font-serif leading-[1.7] text-white"
+                    style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}
+                  >
                     {b.items.map((it) => (
-                      <li key={it} className="flex gap-2">
-                        <span aria-hidden="true">-</span>
-                        <span>{it}</span>
-                      </li>
+                      <li key={it}>{it}</li>
                     ))}
                   </ul>
                 </div>
