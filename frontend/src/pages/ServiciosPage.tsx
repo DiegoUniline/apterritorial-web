@@ -46,7 +46,7 @@ export function ServiciosPage() {
                     {b.title}
                   </h2>
                   <ul
-                    className="mt-4 list-disc pl-7 space-y-2 text-[15px] font-serif leading-[1.7] text-white"
+                    className="mt-4 list-disc pl-7 space-y-2 text-[15px] font-semibold leading-[1.7] text-white"
                     style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}
                   >
                     {b.items.map((it) => (
@@ -57,17 +57,15 @@ export function ServiciosPage() {
               ))}
             </div>
 
-            {/* Columna derecha (imagen enmarcada) */}
+            {/* Columna derecha (imagen) */}
             <div className="flex items-start justify-center md:justify-end">
-              <div className="w-full max-w-[560px] bg-white/80 p-4 shadow-[0_18px_50px_rgba(0,0,0,0.35)]">
-                <img
-                  src={trabajoImages.framed6}
-                  alt="Ejemplo de entregable"
-                  className="h-[340px] w-full object-cover md:h-[420px]"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+              <img
+                src={trabajoImages.framed6}
+                alt="Ejemplo de entregable"
+                className="h-[340px] w-full object-cover md:h-[420px]"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@
  */
 import { HOME_SUBTITLE } from "@/components/home/homeData";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useId, useState } from "react";
+import { useId, useState } from "react";
 
 export type SiteNavItem = {
   label: string;
@@ -42,10 +42,13 @@ export function SiteHeader({ navItems = defaultNavItems }: SiteHeaderProps) {
   const mobileMenuId = useId();
   const location = useLocation();
 
-  // Cierra el menú si cambia la ruta/hash (evita que se quede abierto al navegar).
-  useEffect(() => {
+  // Cierra el menú al navegar — patrón de estado derivado (React docs):
+  // setState durante el render evita el antipatrón useEffect → setState.
+  const [prevPathname, setPrevPathname] = useState(location.pathname);
+  if (prevPathname !== location.pathname) {
+    setPrevPathname(location.pathname);
     setMobileOpen(false);
-  }, [location.hash, location.pathname, location.search]);
+  }
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-white shadow-sm">
@@ -181,7 +184,7 @@ export function SiteHeader({ navItems = defaultNavItems }: SiteHeaderProps) {
                       className={[
                         "block rounded-sm px-3 py-2 text-sm uppercase tracking-[0.18em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70",
                         active
-                          ? "bg-white/25 font-extrabold text-white underline underline-offset-4 decoration-white/70"
+                          ? "bg-white/25 font-extrabold text-white underline-offset-4 decoration-white/70"
                           : "font-semibold text-white/95 hover:bg-white/15",
                       ].join(" ")}
                     >

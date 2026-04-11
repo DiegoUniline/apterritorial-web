@@ -15,6 +15,7 @@
         en Linux/Netlify aparece TS2307 "Cannot find module '@/...'"
       - Relacionado con: imports en `src/pages/HomePage.tsx` y `vite.config.ts` (alias runtime).
     */
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

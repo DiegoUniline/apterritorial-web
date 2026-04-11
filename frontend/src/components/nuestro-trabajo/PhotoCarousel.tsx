@@ -2,13 +2,13 @@ import { useState, useEffect, useCallback } from 'react'
 
 type Props = {
   images: string[]
-  /** Clases Tailwind para controlar la altura de la imagen desde el padre */
+  /** Clases Tailwind para la etiqueta <img> */
   imgClassName?: string
 }
 
 export function PhotoCarousel({
   images,
-  imgClassName = 'h-64 w-full object-contain sm:h-80 md:h-[500px]',
+  imgClassName = 'h-[320px] w-full object-contain md:h-[400px]',
 }: Props) {
   const [idx, setIdx] = useState(0)
 
@@ -21,12 +21,8 @@ export function PhotoCarousel({
     [images.length],
   )
 
-  // Reinicia al primer slide cuando cambia el set de imágenes
-  useEffect(() => {
-    setIdx(0)
-  }, [images])
-
-  // Avance automático cada 4.5 s
+  // Auto-avance cada 4.5 s
+  // (el reset al slide 0 al cambiar de tab lo maneja el padre con key={activeIdx})
   useEffect(() => {
     if (images.length <= 1) return
     const id = setInterval(next, 4500)
@@ -36,8 +32,7 @@ export function PhotoCarousel({
   if (!images.length) return null
 
   return (
-    <div className="relative w-full overflow-hidden bg-neutral-900">
-      {/* Imagen sin marco, ocupa el 100 % del ancho */}
+    <div className="relative w-full overflow-hidden bg-neutral-800">
       <img
         key={images[idx]}
         src={images[idx]}
@@ -49,40 +44,25 @@ export function PhotoCarousel({
 
       {images.length > 1 && (
         <>
-          {/* Botón anterior */}
+          {/* Flecha izquierda */}
           <button
             type="button"
             onClick={prev}
             aria-label="Imagen anterior"
-            className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center bg-black/40 text-2xl text-white transition-colors hover:bg-black/65"
+            className="absolute left-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center bg-black/40 text-2xl text-white transition-colors hover:bg-black/65"
           >
             ‹
           </button>
 
-          {/* Botón siguiente */}
+          {/* Flecha derecha */}
           <button
             type="button"
             onClick={next}
             aria-label="Siguiente imagen"
-            className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center bg-black/40 text-2xl text-white transition-colors hover:bg-black/65"
+            className="absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center bg-black/40 text-2xl text-white transition-colors hover:bg-black/65"
           >
             ›
           </button>
-
-          {/* Puntos indicadores superpuestos en la parte inferior */}
-          <div className="absolute bottom-3 left-0 right-0 flex flex-wrap justify-center gap-1.5 px-6">
-            {images.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => setIdx(i)}
-                aria-label={`Ir a imagen ${i + 1}`}
-                className={`h-2 w-2 rounded-full border border-white/70 transition-colors ${
-                  i === idx ? 'bg-white' : 'bg-black/40'
-                }`}
-              />
-            ))}
-          </div>
         </>
       )}
     </div>
