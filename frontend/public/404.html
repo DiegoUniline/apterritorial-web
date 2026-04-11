@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>APTerritorial</title>
+    <!--
+      Truco SPA para GitHub Pages.
+      Cuando el usuario recarga en /nuestro-trabajo, GitHub Pages sirve este 404.html
+      porque no existe ese archivo. Este script guarda la ruta completa en sessionStorage
+      y redirige a la raíz; el script en index.html la restaura antes de que React arranque.
+      Basado en: https://github.com/rafgraph/spa-github-pages
+    -->
+    <script>
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+      sessionStorage.setItem(
+        '__spa_redirect',
+        JSON.stringify({ path: path, search: search, hash: hash })
+      );
+      window.location.replace('/');
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -9,14 +9,13 @@
     "skipLibCheck": true,
 
     /*
-      Alias de imports para producción (Netlify):
+      Alias de imports para producción (GitHub Pages / Netlify):
       - Qué hace: habilita `@/*` -> `src/*` para el proyecto "app".
       - Por qué: `tsc -b` compila usando `tsconfig.app.json`; si el alias está solo en `tsconfig.json`,
-        en Linux/Netlify aparece TS2307 "Cannot find module '@/...'"
+        en Linux aparece TS2307 "Cannot find module '@/...'"
+      - Sin `baseUrl`: en TS 5.x con moduleResolution bundler, paths resuelve relativo al tsconfig.
       - Relacionado con: imports en `src/pages/HomePage.tsx` y `vite.config.ts` (alias runtime).
     */
-    "ignoreDeprecations": "6.0",
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
