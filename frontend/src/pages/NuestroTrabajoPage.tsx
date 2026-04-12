@@ -2,7 +2,7 @@
  * Página "Nuestro trabajo".
  * Layout: título → tabs + (texto izquierda | carrusel de fotos del tab derecha) sobre fondo de imagen.
  */
-import { useId, useState } from 'react'
+import { useCallback, useId, useState } from 'react'
 import { ExperienceStatsBar } from '@/components/shared/ExperienceStatsBar'
 import {
   trabajoImages,
@@ -14,6 +14,17 @@ export function NuestroTrabajoPage() {
   const [activeIdx, setActiveIdx] = useState(0)
   const tabsBaseId = useId()
   const active = trabajoPanels[activeIdx] ?? trabajoPanels[0]
+
+  // Tracks which sections (by "tabIdx-sectionTitle") have been expanded with "ver más"
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set())
+  const toggleSection = useCallback((key: string) => {
+    setExpandedSections((prev) => {
+      const next = new Set(prev)
+      if (next.has(key)) next.delete(key)
+      else next.add(key)
+      return next
+    })
+  }, [])
 
   return (
     <div className="bg-white">
@@ -93,31 +104,54 @@ export function NuestroTrabajoPage() {
               </h2>
 
               {active.content.type === 'sections' ? (
-                active.content.sections.map((sec) => (
-                  <div key={sec.title} className="mt-6">
-                    <h3
-                      className="text-[14px] font-bold uppercase tracking-[0.14em] text-white/95"
-                      style={{ textShadow: '0 1px 4px rgba(0,0,0,0.9)' }}
-                    >
-                      {sec.subtitle}
-                    </h3>
-                    <ul
-                      className="mt-3 list-disc pl-6 space-y-2 text-[15px] font-semibold leading-[1.6] text-white"
-                      style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}
-                    >
-                      {sec.items.map((it) => (
-                        <li key={`${sec.title}-${it.name}`}>
-                          <span>{it.name}</span>
-                          {it.org ? (
-                            <span className="block mt-0.5 text-[13px] font-normal text-white/80">
-                              {it.org}
-                            </span>
-                          ) : null}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))
+                active.content.sections.map((sec) => {
+                  const sectionKey = `${activeIdx}-${sec.title}`
+                  const isExpanded = expandedSections.has(sectionKey)
+                  const visibleItems =
+                    sec.maxVisible && !isExpanded
+                      ? sec.items.slice(0, sec.maxVisible)
+                      : sec.items
+                  const hiddenCount = sec.maxVisible
+                    ? sec.items.length - sec.maxVisible
+                    : 0
+
+                  return (
+                    <div key={sec.title} className="mt-6">
+                      <h3
+                        className="text-[14px] font-bold uppercase tracking-[0.14em] text-white/95"
+                        style={{ textShadow: '0 1px 4px rgba(0,0,0,0.9)' }}
+                      >
+                        {sec.subtitle}
+                      </h3>
+                      <ul
+                        className="mt-3 list-disc pl-6 space-y-2 text-[15px] font-semibold leading-[1.6] text-white"
+                        style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}
+                      >
+                        {visibleItems.map((it) => (
+                          <li key={`${sec.title}-${it.name}`}>
+                            <span>{it.name}</span>
+                            {it.org ? (
+                              <span className="block mt-0.5 text-[13px] font-normal text-white/80">
+                                {it.org}
+                              </span>
+                            ) : null}
+                          </li>
+                        ))}
+                      </ul>
+                      {hiddenCount > 0 && (
+                        <button
+                          type="button"
+                          onClick={() => toggleSection(sectionKey)}
+                          className="mt-3 text-[13px] font-semibold uppercase tracking-[0.12em] text-white/80 underline underline-offset-4 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                        >
+                          {isExpanded
+                            ? 'VER MENOS'
+                            : `VER MÁS (${hiddenCount} más)`}
+                        </button>
+                      )}
+                    </div>
+                  )
+                })
               ) : (
                 <div
                   className="mt-6 space-y-4 text-[15px] leading-[1.75] text-white"

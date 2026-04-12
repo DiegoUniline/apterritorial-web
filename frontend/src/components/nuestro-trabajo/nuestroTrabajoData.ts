@@ -24,6 +24,10 @@ export type TrabajoSection = {
   title: string;
   subtitle: string;
   items: TrabajoItem[];
+  /**
+   * Si se define, la sección muestra solo los primeros N ítems y un botón "ver más".
+   */
+  maxVisible?: number;
 };
 
 /**
@@ -33,7 +37,7 @@ export type TrabajoSection = {
  */
 export const trabajoTabs: readonly TrabajoTab[] = [
   { title: "ESTATALES Y\nREGIONALES" },
-  { title: "METROPOLITANOS,\nMUNICIPALES Y DE CENTROS" },
+  { title: "METROPOLITANOS,\nMUNICIPALES Y DE CENTRO DE POBLACIÓN" },
   {
     title:
       "PROGRAMAS PARCIALES DE\nDESARROLLO URBANO Y\nPLANES MAESTROS DE\nFRACCIONAMIENTOS",
@@ -111,7 +115,7 @@ const estatalesYRegionalesSections: TrabajoSection[] = [
   },
 ];
 
-const metropolitanosMunicipalesYCentrOSSections: TrabajoSection[] = [
+const metropolitanosMunicipalesYCentroDePoblacionSections: TrabajoSection[] = [
   {
     title: "ELABORACIÓN",
     subtitle: "ELABORACIÓN",
@@ -147,6 +151,101 @@ const metropolitanosMunicipalesYCentrOSSections: TrabajoSection[] = [
       {
         name: "Programa Municipal de Desarrollo Urbano de Cucurpe, Son.",
         org: "Contratado por el Ayuntamiento de Cucurpe, Sonora. (2023).",
+      },
+    ],
+  },
+  {
+    title: "PROGRAMAS DE DESARROLLO URBANO DE CENTRO DE POBLACIÓN",
+    subtitle: "PROGRAMAS DE DESARROLLO URBANO DE CENTRO DE POBLACIÓN",
+    maxVisible: 5,
+    items: [
+      {
+        name: "Programa de Desarrollo Urbano de Centro de Población de Hermosillo.",
+        org: "Contratado por el Ayuntamiento de Hermosillo, Sonora. (2013).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano de Centro de Población de San Carlos, Guaymas.",
+        org: "Contratado por la Secretaría de Infraestructura y Desarrollo Urbano, Gobierno de Sonora. (2008).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano de Centro de Población de Puerto Peñasco, Sonora.",
+        org: "Contratado por la Secretaría de Infraestructura y Desarrollo Urbano, Gobierno de Sonora. (2007).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Cárdenas, Tabasco.",
+        org: "Contratado por Grupo Sistema de Alta Dirección, S.A. / SEDESPA, Gobierno de Tabasco. (2000).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Huimanguillo, Tabasco.",
+        org: "Contratado por Grupo Sistema de Alta Dirección, S.A. / SEDESPA, Gobierno de Tabasco. (2000).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Paraíso, Tabasco.",
+        org: "Contratado por Grupo Sistema de Alta Dirección, S.A. / SEDESPA, Gobierno de Tabasco. (2000).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Comalcalco, Tabasco.",
+        org: "Contratado por Grupo Sistema de Alta Dirección, S.A. / SEDESPA, Gobierno de Tabasco. (2000).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Jalpa de Méndez, Tabasco.",
+        org: "Contratado por Grupo Sistema de Alta Dirección, S.A. / SEDESPA, Gobierno de Tabasco. (2000).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Cunduacán, Tabasco.",
+        org: "Contratado por Grupo Sistema de Alta Dirección, S.A. / SEDESPA, Gobierno de Tabasco. (2000).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Nacajuca, Tabasco.",
+        org: "Contratado por Grupo Sistema de Alta Dirección, S.A. / SEDESPA, Gobierno de Tabasco. (2000).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Frontera, Tabasco.",
+        org: "Contratado por Grupo Sistema de Alta Dirección, S.A. / SEDESPA, Gobierno de Tabasco. (2000).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Macuspana, Tabasco.",
+        org: "Contratado por Grupo Sistema de Alta Dirección, S.A. / SEDESPA, Gobierno de Tabasco. (2000).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Hermosillo, Sonora.",
+        org: "Contratado por el Ayuntamiento de Hermosillo. (1997).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Huatabampo, Sonora.",
+        org: "Contratado por el Ayuntamiento de Huatabampo. (1994).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Navojoa, Sonora.",
+        org: "Contratado por la Secretaría de Infraestructura Urbana y Ecología, Gobierno de Sonora. (1993).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de San Luis Río Colorado, Sonora.",
+        org: "Contratado por la Secretaría de Infraestructura Urbana y Ecología, Gobierno de Sonora. (1993).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Agua Prieta, Sonora.",
+        org: "Contratado por la Secretaría de Infraestructura Urbana y Ecología, Gobierno de Sonora. (1993).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Magdalena de Kino, Sonora.",
+        org: "Contratado por la Secretaría de Infraestructura Urbana y Ecología, Gobierno de Sonora. (1993).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Villa Juárez, Sonora.",
+        org: "Contratado por la Secretaría de Infraestructura Urbana y Ecología, Gobierno de Sonora. (1993).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Hermosillo, Sonora.",
+        org: "Contratado por el Ayuntamiento de Hermosillo. (1992).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Ciudad Obregón, Sonora.",
+        org: "Contratado por la Secretaría de Infraestructura Urbana y Ecología, Gobierno de Sonora. (1992).",
+      },
+      {
+        name: "Programa de Desarrollo Urbano del Centro de Población de Nogales, Sonora.",
+        org: "Contratado por la Secretaría de Infraestructura Urbana y Ecología, Gobierno de Sonora. (1992).",
       },
     ],
   },
@@ -291,7 +390,7 @@ export const trabajoPanels: TrabajoPanel[] = [
     ],
     content: {
       type: "sections",
-      sections: metropolitanosMunicipalesYCentrOSSections,
+      sections: metropolitanosMunicipalesYCentroDePoblacionSections,
     },
   },
   {
