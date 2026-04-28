@@ -117,9 +117,13 @@ const estatalesYRegionalesSections: TrabajoSection[] = [
 
 const metropolitanosMunicipalesYCentroDePoblacionSections: TrabajoSection[] = [
   {
-    title: "ELABORACIÓN",
-    subtitle: "ELABORACIÓN",
+    title: "PROGRAMAS MUNICIPALES DE DESARROLLO URBANO",
+    subtitle: "PROGRAMAS MUNICIPALES DE DESARROLLO URBANO",
     items: [
+      {
+        name: "Programa Municipal de Desarrollo Urbano de Cananea, Son.",
+        org: "Contratado por el Ayuntamiento de Cananea, Sonora. (2026).",
+      },
       {
         name: "Programa Municipal de Desarrollo Urbano de Plutarco Elías Calles, Son.",
         org: "Contratado por el Ayuntamiento de Plutarco Elías Calles, Sonora. (2025).",
@@ -152,6 +156,10 @@ const metropolitanosMunicipalesYCentroDePoblacionSections: TrabajoSection[] = [
         name: "Programa Municipal de Desarrollo Urbano de Cucurpe, Son.",
         org: "Contratado por el Ayuntamiento de Cucurpe, Sonora. (2023).",
       },
+      {
+        name: "Programa Municipal de Desarrollo Urbano de Banámichi, Son.",
+        org: "Contratado por el Ayuntamiento de Banámichi, Sonora. (2022).",
+      },
     ],
   },
   {
@@ -159,6 +167,18 @@ const metropolitanosMunicipalesYCentroDePoblacionSections: TrabajoSection[] = [
     subtitle: "PROGRAMAS DE DESARROLLO URBANO DE CENTRO DE POBLACIÓN",
     maxVisible: 5,
     items: [
+      {
+        name: "Actualización del Programa de Desarrollo Urbano de Centro de Población de Puerto Libertad, Son.",
+        org: "Contratado por el Ayuntamiento de Pitiquito, Sonora. (2023).",
+      },
+      {
+        name: "Actualización del Programa de Desarrollo Urbano de Centro de Población de Puerto Libertad, Son.",
+        org: "Contratado por el Ayuntamiento de Pitiquito, Sonora. (2019).",
+      },
+      {
+        name: "Actualización del Programa de Desarrollo Urbano de Centro de Población de Puerto Libertad, Son.",
+        org: "Contratado por el Ayuntamiento de Pitiquito, Sonora. (2018).",
+      },
       {
         name: "Programa de Desarrollo Urbano de Centro de Población de Hermosillo.",
         org: "Contratado por el Ayuntamiento de Hermosillo, Sonora. (2013).",

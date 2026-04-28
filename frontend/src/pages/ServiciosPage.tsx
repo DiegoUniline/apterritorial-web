@@ -7,21 +7,25 @@
  *   - `src/components/shared/ExperienceStatsBar.tsx` (barra 8/74/37)
  *   - `src/pages/NuestroTrabajoPage.tsx` (patrón de fondo + overlay + imagen enmarcada)
  */
-import { ExperienceStatsBar } from '@/components/shared/ExperienceStatsBar'
+import { ExperienceStatsBar } from "@/components/shared/ExperienceStatsBar";
 import {
   serviciosBloques,
   serviciosTitle,
-} from '@/components/servicios/serviciosData'
-import { trabajoImages } from '@/components/nuestro-trabajo/nuestroTrabajoData'
+} from "@/components/servicios/serviciosData";
+import { trabajoImages } from "@/components/nuestro-trabajo/nuestroTrabajoData";
+import { PhotoCarousel } from "@/components/nuestro-trabajo/PhotoCarousel";
+
+const serviciosImages = Array.from(
+  { length: 16 },
+  (_, i) => `/services/${String(i + 1).padStart(2, "0")}.jpeg`,
+);
 
 export function ServiciosPage() {
   return (
     <div className="bg-white">
       {/* Título principal grande (gris) */}
       <header className="py-10 sm:py-12">
-        <h1 className="apt-title-main px-4 text-center">
-          {serviciosTitle}
-        </h1>
+        <h1 className="apt-title-main px-4 text-center">{serviciosTitle}</h1>
       </header>
 
       {/* Bloque con background + overlay + contenido */}
@@ -41,13 +45,13 @@ export function ServiciosPage() {
                 <div key={b.title} className="mb-10 last:mb-0">
                   <h2
                     className="apt-fs-subtitle whitespace-pre-line font-bold uppercase leading-tight tracking-[0.06em] text-white"
-                    style={{ textShadow: '0 1px 5px rgba(0,0,0,0.9)' }}
+                    style={{ textShadow: "0 1px 5px rgba(0,0,0,0.9)" }}
                   >
                     {b.title}
                   </h2>
                   <ul
                     className="mt-4 list-disc pl-7 space-y-2 text-[15px] font-semibold leading-[1.7] text-white"
-                    style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}
+                    style={{ textShadow: "0 1px 4px rgba(0,0,0,0.85)" }}
                   >
                     {b.items.map((it) => (
                       <li key={it}>{it}</li>
@@ -59,12 +63,9 @@ export function ServiciosPage() {
 
             {/* Columna derecha (imagen) */}
             <div className="flex items-start justify-center md:justify-end">
-              <img
-                src={trabajoImages.framed6}
-                alt="Ejemplo de entregable"
-                className="h-[340px] w-full object-cover md:h-[420px]"
-                loading="lazy"
-                decoding="async"
+              <PhotoCarousel
+                images={serviciosImages}
+                imgClassName="h-[340px] w-full object-cover md:h-[420px]"
               />
             </div>
           </div>
@@ -74,6 +75,5 @@ export function ServiciosPage() {
       {/* Barra de números (igual que Home) */}
       <ExperienceStatsBar />
     </div>
-  )
+  );
 }
-
